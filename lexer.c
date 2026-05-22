@@ -6,6 +6,26 @@
  */
 #include <stdio.h>
 #include <regex.h>
+#include <string.h>
+#include "lexer.h"
 
-typedef enum { M_PARAM, M_CONDITIONAL, M_BODY, M_RETURN /*TODO*/} Mode;
-typedef enum { I_FUNC, I_VAR, N_FUNC, N_VAR, TYPE, OPER /*TODO*/} Token; 
+const char *modeRef[] = {
+	// TODO
+};
+const char *tokenRef[] = {
+	// TODO 
+};
+
+char* removeWhitespaces(char code[]){
+	int i = 0;
+	int iteration = 0;
+	while(i < strlen(code)){
+		if(code[i] != ' ' && code[i] != '\n' && code[i] != '\t'){
+			code[iteration] = code[i];
+			iteration++;
+		}
+		i++;
+	}
+	code[iteration] = '\0';
+	return code;
+}
